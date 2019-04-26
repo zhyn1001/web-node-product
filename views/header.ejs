@@ -5,8 +5,58 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.min.css">
+    <style>
+        .user-name{
+            display:inline-block;
+            height:100%;
+            line-height:50px;
+            color:#f00;
+        }
+        .user-login{
+            display:inline-block;
+            height:100%;
+            line-height:50px;
+        }
+    </style>
 </head>
+<script src="/javascripts/jquery-2.1.0.js"></script>
+<script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 
 <body>
-    <script src="/javascripts/jquery-2.1.0.js"></script>
-    <script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="home" class="active"><a href="/">首页</a></li>
+                    <li id="product"><a href="/product">商品管理</a></li>
+                    <li id="users"><a href="/users">个人中心</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if (!userInfo.username) { %>
+                        <li style="color:#fff;"><span class="user-login">请您登录</span></li>
+                        <li>
+                            <a href="/register">注册</a>
+                        </li>
+                        <li>
+                            <a href="/login">登陆</a>
+                        </li>
+                    <% } else { %>
+                        <li style="color:#fff;">欢迎您:<span class="user-name"><%= userInfo.username %></span></li>
+                        <li><a href="/login/logout" style="cursor:pointer;color:#0ff">退出</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <script>
+        $(function(){
+            var location = window.location.href
+            var id = location.substring(location.lastIndexOf('/')+1)
+            $(".navbar-nav li").removeClass('active')
+            if(id === ""){
+                $("#home").addClass('active')
+            }else{
+                $("#"+id).addClass('active')
+            }
+        })
+    </script>

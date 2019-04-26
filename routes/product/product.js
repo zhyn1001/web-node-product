@@ -3,8 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('user', {
-		title: '个人中心'
+	res.render('product', {
+		title: '商品管理'
 	});
 });
 
