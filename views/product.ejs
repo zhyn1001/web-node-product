@@ -1,3 +1,26 @@
 <%- include('header')%>
-商品管理
+<div class="main-wrap">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>商品ID</th>
+                <th>商品名称</th>
+                <th>商品缩略图</th>
+                <th>价格</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <% producrList.forEach((list)=>{ %>
+            <tr>
+                <td><%= list.productID %></td>
+                <td><%= list.productName %></td>
+                <td><%= list.productPic %></td>
+                <td><%= list.price %></td>
+                <td><%= list.counts %></td>
+                <td><a href="/product/modify/<%=list.productID %>">修改</a><a href="/product/delete">删除</a></td>
+            </tr>
+        <% })%>
+    </table>
+</div>
 <%- include('footer')%>
