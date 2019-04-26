@@ -8,6 +8,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/home/index');
 var loginRouter = require('./routes/login');
+var registerRouter = require('./routes/register');
 var usersRouter = require('./routes/users/users');
 var productRouter = require('./routes/product/product');
 
@@ -48,6 +49,7 @@ app.use(function(req, res, next){//自定义中间件(判断是否登陆)
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
+app.use('/register', registerRouter);
 app.use('/users', usersRouter);
 app.use('/product', productRouter);
 

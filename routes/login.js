@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user')
+var bcrypt = require('bcrypt');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -18,7 +19,7 @@ router.post('/doLogin', function (req, res, next) {
 		if(docs.length==0){
 			res.send('用户不存在');
 		} else {
-			if( _password === doc.password ){
+			if( bcrypt.compareSync(_password, doc.password) ){
 				var _user = {username:doc.username}
                 req.session.userInfo = _user;
 				res.redirect('/');
