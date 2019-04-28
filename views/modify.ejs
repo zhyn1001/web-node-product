@@ -1,10 +1,12 @@
 <%- include('header')%>
-<form action="/product/doModify">
-    <input type="text" class="form-control" name="" value="">
-    <input type="text" class="form-control" name="" value="">
-    <input type="file" name="file">
-    <input type="text" class="form-control" name="" value="">
-    <input type="text" class="form-control" name="" value="">
-    <input type="submit" value="保存" />
-</form>
+<div class="midify-box-sty">
+    <form action="/product/save" method="POST">
+        <p><label>商品ID</label><input type="text" class="form-control" id="disabledInput" name="productID" value="<%=producrList.productID%>"></p>
+        <p><label>商品名称</label><input type="text" class="form-control" name="productName" value="<%=producrList.productName%>"></p>
+        <p><label>商品缩略图</label><input type="file" name="productPic"></p>
+        <p><label>商品价格</label><input type="text" class="form-control" name="price" value="<%=producrList.price%>"></p>
+        <p><label>商品数量</label><input type="text" class="form-control" name="counts" value="<%=producrList.counts%>"></p>
+        <p><input class="btn btn-default" type="submit" value="Submit"></p>
+    </form>
+</div>
 <%- include('footer')%>
