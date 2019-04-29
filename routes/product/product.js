@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../../models/product')
+var multiparty = require('multiparty');
+var util = require('util');
+var fs = require('fs');
 var modelback = {
 	_id:0
 }
@@ -28,7 +31,13 @@ router.get('/modify/:productID', (req, res, next) => {
 	})
 })
 router.post('/save', (req, res, next) => {
-	Product.updateOne({productID:req.body.productID}, req.body, function(err, result){
+	let resultList = {
+		productID:req.body.productID,
+		productName:req.body.productName,
+		price:req.body.price,
+		counts:req.body.counts
+	}
+	Product.updateOne({productID:req.body.productID}, resultList, function(err, result){
 		if(err) {
 			console.log(err)
 		} else {

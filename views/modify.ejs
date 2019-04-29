@@ -1,9 +1,13 @@
 <%- include('header')%>
 <div class="midify-box-sty">
+    <form action="/import" method="POST" enctype="multipart/form-data">
+        <input type="text" class="form-control" name="productID" style="display:none" value="<%=producrList.productID%>">
+        <input type="file" name="file" id="file">
+        <input class="btn btn-default" type="submit" value="上传">
+    </form>
     <form action="/product/save" method="POST">
-        <p><label>商品ID</label><input type="text" class="form-control" id="disabledInput" name="productID" value="<%=producrList.productID%>"></p>
+        <p><label>商品ID</label><input type="text" class="form-control" disabled id="disabledInput" name="productID" value="<%=producrList.productID%>"></p>
         <p><label>商品名称</label><input type="text" class="form-control" name="productName" value="<%=producrList.productName%>"></p>
-        <p><label>商品缩略图</label><input type="file" name="productPic"></p>
         <p><label>商品价格</label><input type="text" class="form-control" name="price" value="<%=producrList.price%>"></p>
         <p><label>商品数量</label><input type="text" class="form-control" name="counts" value="<%=producrList.counts%>"></p>
         <p><input class="btn btn-default" type="submit" value="Submit"></p>

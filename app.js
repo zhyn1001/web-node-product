@@ -5,10 +5,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
 var logger = require('morgan');
+var multer = require('multer');
 
 var indexRouter = require('./routes/home/index');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
+var importRouter = require('./routes/import');
 var usersRouter = require('./routes/users/users');
 var productRouter = require('./routes/product/product');
 
@@ -18,6 +20,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(multer({ dest: './public/upload/' }).array("file"));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -50,6 +53,7 @@ app.use(function(req, res, next){//自定义中间件(判断是否登陆)
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
+app.use('/import', importRouter);
 app.use('/users', usersRouter);
 app.use('/product', productRouter);
 
