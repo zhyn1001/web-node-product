@@ -5,7 +5,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
 var logger = require('morgan');
-var multer = require('multer');
 
 var indexRouter = require('./routes/home/index');
 var loginRouter = require('./routes/login');
@@ -15,12 +14,10 @@ var usersRouter = require('./routes/users/users');
 var productRouter = require('./routes/product/product');
 
 var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(multer({ dest: './public/upload/' }).array("file"));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

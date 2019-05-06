@@ -5,6 +5,9 @@
         <input type="file" name="file" id="file">
         <input class="btn btn-default" type="submit" value="上传">
     </form>
+    <div>
+        <div><span></span></div>
+    </div>
     <form action="/product/save" method="POST">
         <p><label>商品ID</label><input type="text" class="form-control" disabled id="disabledInput" name="productID" value="<%=producrList.productID%>"></p>
         <p><label>商品名称</label><input type="text" class="form-control" name="productName" value="<%=producrList.productName%>"></p>

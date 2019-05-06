@@ -15,10 +15,10 @@
             <tr>
                 <td><%= list.productID %></td>
                 <td><%= list.productName %></td>
-                <td><%= list.productPic %></td>
+                <td><img style="height:30px;width:30px;background-size:100%;" src="/upload/<%= list.productPic %>" alt="缩略图"/></td>
                 <td><%= list.price %></td>
                 <td><%= list.counts %></td>
-                <td><a href="/product/modify/<%=list.productID %>">修改</a><a href="/product/delete">删除</a></td>
+                <td><a style="margin-right:10px;" href="/product/modify/<%=list.productID %>">修改</a><a href="/product/delete">删除</a></td>
             </tr>
         <% })%>
     </table>
