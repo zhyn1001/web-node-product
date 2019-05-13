@@ -7,6 +7,7 @@
         <input type="text" name="pType" style="display:none" value="modify">
         <p><label>商品ID</label><input type="text" class="form-control"  readonly name="productID" value="<%=productList.productID%>"></p>
         <p><label>商品名称</label><input type="text" class="form-control" name="productName" value="<%=productList.productName%>"></p>
+        <p><img style="width:200px;height:200px;background-size:100%;" src="/upload/<%=productList.productPic%>"></p>
         <input type="file" name="file" id="file">
         <p><label>商品价格</label><input type="text" class="form-control" name="price" value="<%=productList.price%>"></p>
         <p><label>商品数量</label><input type="text" class="form-control" name="counts" value="<%=productList.counts%>"></p>
