@@ -1,0 +1,15 @@
+<%- include('header')%>
+<div class="midify-box-sty">
+    <div>
+        <div><span></span></div>
+    </div>
+    <form action="/product/save" method="POST" enctype="multipart/form-data">
+        <input type="text" name="pType" style="display:none" value="add">
+        <p><label>商品名称</label><input type="text" class="form-control" name="productName" value=""></p>
+        <input type="file" name="file" id="file">
+        <p><label>商品价格</label><input type="text" class="form-control" name="price" value=""></p>
+        <p><label>商品数量</label><input type="text" class="form-control" name="counts" value=""></p>
+        <p><input class="btn btn-default" type="submit" value="保存"></p>
+    </form>
+</div>
+<%- include('footer')%>

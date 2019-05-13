@@ -4,6 +4,7 @@
         <div><span></span></div>
     </div>
     <form action="/product/save" method="POST" enctype="multipart/form-data">
+        <input type="text" name="pType" style="display:none" value="modify">
         <p><label>商品ID</label><input type="text" class="form-control"  readonly name="productID" value="<%=productList.productID%>"></p>
         <p><label>商品名称</label><input type="text" class="form-control" name="productName" value="<%=productList.productName%>"></p>
         <input type="file" name="file" id="file">
